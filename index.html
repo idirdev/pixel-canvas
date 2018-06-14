@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Canvas - Pixel Art Editor</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #eee; display: flex; height: 100vh; overflow: hidden; }
+    #toolbar { width: 60px; background: #16213e; display: flex; flex-direction: column; align-items: center; padding: 10px 0; gap: 6px; border-right: 1px solid #0f3460; }
+    #toolbar button { width: 44px; height: 44px; border: 1px solid #0f3460; border-radius: 6px; background: #1a1a2e; color: #eee; cursor: pointer; font-size: 18px; transition: background 0.15s; }
+    #toolbar button:hover { background: #0f3460; }
+    #toolbar button.active { background: #e94560; border-color: #e94560; }
+    #main { flex: 1; display: flex; flex-direction: column; }
+    #top-bar { height: 40px; background: #16213e; display: flex; align-items: center; padding: 0 16px; gap: 12px; border-bottom: 1px solid #0f3460; font-size: 13px; }
+    #top-bar input { width: 50px; padding: 2px 6px; background: #1a1a2e; border: 1px solid #0f3460; color: #eee; border-radius: 4px; text-align: center; }
+    #top-bar button { padding: 4px 10px; background: #0f3460; border: none; color: #eee; border-radius: 4px; cursor: pointer; }
+    #top-bar button:hover { background: #e94560; }
+    #canvas-area { flex: 1; display: flex; justify-content: center; align-items: center; overflow: auto; background: #12121a; }
+    #canvas-container { position: relative; }
+    .pixel-canvas { cursor: crosshair; image-rendering: pixelated; }
+    #sidebar { width: 200px; background: #16213e; border-left: 1px solid #0f3460; padding: 12px; overflow-y: auto; }
+    .current-color { width: 100%; height: 40px; border: 2px solid #0f3460; border-radius: 6px; margin-bottom: 8px; }
+    .palette-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin-bottom: 8px; }
+    .swatch { width: 100%; aspect-ratio: 1; border: 1px solid #0f3460; border-radius: 3px; cursor: pointer; transition: transform 0.1s; }
+    .swatch:hover { transform: scale(1.15); z-index: 1; }
+    .palette-label { font-size: 11px; color: #888; margin: 6px 0 4px; text-transform: uppercase; letter-spacing: 1px; }
+    #sidebar input[type="color"] { width: 100%; height: 32px; border: none; cursor: pointer; margin-bottom: 8px; border-radius: 4px; }
+    #status { height: 24px; background: #0f3460; display: flex; align-items: center; padding: 0 12px; font-size: 11px; color: #aaa; }
+  </style>
+</head>
+<body>
+  <div id="toolbar">
+    <button data-tool="pencil" title="Pencil (B)">&#9998;</button>
+    <button data-tool="eraser" title="Eraser (E)">&#9003;</button>
+    <button data-tool="fill" title="Fill (G)">&#9687;</button>
+    <button data-tool="picker" title="Color Picker (I)">&#9738;</button>
+    <button data-tool="line" title="Line (L)">&#9586;</button>
+    <button data-tool="rect" title="Rectangle (R)">&#9634;</button>
+  </div>
+  <div id="main">
+    <div id="top-bar">
+      <span>Size:</span>
+      <input type="number" id="canvas-width" value="32" min="1" max="256">
+      <span>x</span>
+      <input type="number" id="canvas-height" value="32" min="1" max="256">
+      <button id="btn-resize">Resize</button>
+      <span>|</span>
+      <button id="btn-export-png">Export PNG</button>
+      <button id="btn-export-json">Save JSON</button>
+      <button id="btn-load">Load JSON</button>
+      <button id="btn-copy">Copy</button>
+    </div>
+    <div id="canvas-area">
+      <div id="canvas-container"></div>
+    </div>
+    <div id="status">Tool: pencil | Ready</div>
+  </div>
+  <div id="sidebar">
+    <div id="palette"></div>
+  </div>
+  <script type="module" src="dist/app.js"></script>
+</body>
+</html>
