@@ -1,3 +1,5 @@
+> **Archived** — Kept for reference. Not part of the current portfolio.
+
 # Pixel Canvas
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-4.1-blue)
