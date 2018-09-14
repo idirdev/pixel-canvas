@@ -7,13 +7,15 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "dev": "lite-server",
-    "start": "npm run build && npm run dev"
+    "start": "npm run build && npm run dev",
+    "test": "vitest run"
   },
   "keywords": ["pixel-art", "canvas", "editor", "typescript"],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^4.1.3",
-    "lite-server": "^2.5.4"
+    "lite-server": "^2.5.4",
+    "vitest": "^2.0.0"
   }
 }
