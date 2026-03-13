@@ -82,3 +82,19 @@ Tools follow a consistent interface pattern with `onMouseDown`, `onMouseMove`, a
 ## License
 
 MIT
+
+---
+
+## 🇫🇷 Documentation en français
+
+### Description
+**Pixel Canvas** est un éditeur de pixel art interactif fonctionnant dans le navigateur, développé en TypeScript avec l'API Canvas HTML5. Il permet de dessiner pixel par pixel, de choisir des couleurs, d'effacer et d'exporter ses créations. Idéal pour apprendre la manipulation du canvas.
+
+### Installation
+```bash
+npm install
+npm run build
+```
+
+### Utilisation
+Ouvrez `index.html` dans votre navigateur ou lancez un serveur local. Cliquez pour peindre les pixels avec la couleur sélectionnée.
